@@ -13,8 +13,8 @@ import java.util.List;
 public class DB_DAOService implements DB_DAO {
 
     private List<UserDto> arrayList = new ArrayList(Arrays.asList(
-            new UserDto("One","One"),
-            new UserDto("Two","Two")
+            new UserDto("One","One","e@gmail.com"),
+            new UserDto("Two","Two","e@gmail.com")
     ));
 
 //    public DB_DAOService() {

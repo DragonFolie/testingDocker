@@ -6,7 +6,11 @@ import com.example.demo.service.imp.DB_DAOService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequiredArgsConstructor
@@ -31,8 +35,10 @@ public class UserController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/user")
-    public void addUsers(@RequestBody UserDto userDto){
+    public ResponseEntity<String> addUsers(@RequestBody @Valid UserDto userDto){
          db_daoService.addUser(userDto);
+
+        return ResponseEntity.ok("User is valid");
 
     }
 
